@@ -7,11 +7,10 @@
 using namespace std;
 
 int main() {
-    cout << "Hello World!123" << endl;
     const char *server = "127.0.0.1";  // ustaw nazwę hosta na nazwę usługi bazy danych w docker-compose
     const char *user = "root";
     const char *password = "password";
-    const char *database = "db";
+    const char *database = "fizyka";
 
     MYSQL *conn;
     MYSQL_RES *res;
