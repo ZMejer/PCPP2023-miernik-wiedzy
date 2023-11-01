@@ -1072,6 +1072,8 @@ miernik-wiedzy_autogen/timestamp: \
   CMakeFiles/3.24.2/CMakeSystem.cmake \
   miernik-wiedzy_autogen/moc_predefs.h \
   /Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/CMakeLists.txt \
+  /Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/DatabaseHandler.cpp \
+  /Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/DatabaseHandler.hpp \
   /Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/main.cpp \
   /Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/mainwindow.cpp \
   /Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/mainwindow.h \

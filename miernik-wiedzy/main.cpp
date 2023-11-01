@@ -4,55 +4,37 @@
 #include <mysql/mysql.h>
 #include <iostream>
 
-using namespace std;
+#include "DatabaseHandler.hpp"
 
 int main() {
-    const char *server = "127.0.0.1";  // ustaw nazwę hosta na nazwę usługi bazy danych w docker-compose
+    const char *server = "127.0.0.1";
     const char *user = "root";
     const char *password = "password";
     const char *database = "fizyka";
+    int port = 3307;
 
-    MYSQL *conn;
-    MYSQL_RES *res;
-    MYSQL_ROW row;
+    DatabaseHandler dataHandler(server, user, password, database, port);
 
-    conn = mysql_init(NULL);
-    if (conn == NULL) {
-        fprintf(stderr, "mysql_init() failed\n");
+    if (!dataHandler.executeQuery("select * from dzialy")) {
         return EXIT_FAILURE;
     }
 
-    if (mysql_real_connect(conn, server, user, password, database, 3307, NULL, 0) == NULL) {
-        fprintf(stderr, "mysql_real_connect() failed\n");
-        fprintf(stderr, "Error: %s\n", mysql_error(conn));  // log the error
-        mysql_close(conn);
-        return EXIT_FAILURE;
-    }
-
-    if (mysql_query(conn, "SHOW TABLES")) {
-        fprintf(stderr, "%s\n", mysql_error(conn));
-        mysql_close(conn);
-        return EXIT_FAILURE;
-    }
-
-    res = mysql_store_result(conn);
+    MYSQL_RES *res = dataHandler.storeResult();
     if (res == NULL) {
-        fprintf(stderr, "%s\n", mysql_error(conn));
-        mysql_close(conn);
         return EXIT_FAILURE;
     }
 
     int num_fields = mysql_num_fields(res);
+    MYSQL_ROW row;
 
     while ((row = mysql_fetch_row(res))) {
-        for(int i = 0; i < num_fields; i++) {
+        for (int i = 0; i < num_fields; i++) {
             printf("%s ", row[i] ? row[i] : "NULL");
         }
         printf("\n");
     }
 
     mysql_free_result(res);
-    mysql_close(conn);
 
     return 0;
 }
