@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-0c8dcd7e7be5fd47d97a.json",
+					"jsonFile" : "directory-.-Debug-80ecfd61e4299f60676a.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "miernik-wiedzy::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-miernik-wiedzy-Debug-da9f00567c64e4017805.json",
+					"jsonFile" : "target-miernik-wiedzy-Debug-1f8bf56c585cfa9e9088.json",
 					"name" : "miernik-wiedzy",
 					"projectIndex" : 0
 				},

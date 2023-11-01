@@ -70,13 +70,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 70,
+				"line" : 69,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 53,
+				"line" : 52,
 				"parent" : 0
 			},
 			{
@@ -204,7 +204,7 @@
 			{
 				"command" : 11,
 				"file" : 1,
-				"line" : 52,
+				"line" : 51,
 				"parent" : 0
 			}
 		]
@@ -303,7 +303,7 @@
 				1,
 				2,
 				6,
-				8
+				10
 			]
 		}
 	],
@@ -425,7 +425,7 @@
 				1,
 				2,
 				6,
-				8
+				10
 			]
 		},
 		{
@@ -434,8 +434,7 @@
 			[
 				3,
 				5,
-				7,
-				9
+				8
 			]
 		},
 		{
@@ -443,14 +442,16 @@
 			"sourceIndexes" : 
 			[
 				4,
-				10
+				7,
+				9
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				11
+				11,
+				12
 			]
 		}
 	],
@@ -498,14 +499,8 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "Question.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "Question.cpp",
-			"sourceGroupIndex" : 0
+			"path" : "resources.qrc",
+			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
@@ -521,8 +516,21 @@
 		},
 		{
 			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/build-miernik-wiedzy-Qt_6_7_0_for_macOS-Debug/miernik-wiedzy_autogen/EWIEGA46WW/qrc_resources.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/build-miernik-wiedzy-Qt_6_7_0_for_macOS-Debug/miernik-wiedzy_autogen/timestamp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/build-miernik-wiedzy-Qt_6_7_0_for_macOS-Debug/miernik-wiedzy_autogen/EWIEGA46WW/qrc_resources.cpp.rule",
 			"sourceGroupIndex" : 3
 		}
 	],

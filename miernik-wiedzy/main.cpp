@@ -6,7 +6,7 @@
 
 #include "DatabaseHandler.hpp"
 
-int main() {
+int main(int argc, char *argv[]) {
     const char *server = "127.0.0.1";
     const char *user = "root";
     const char *password = "password";
@@ -36,5 +36,9 @@ int main() {
 
     mysql_free_result(res);
 
-    return 0;
+    QApplication app(argc, argv);
+    MainWindow window;
+    window.show();
+
+    return app.exec();
 }

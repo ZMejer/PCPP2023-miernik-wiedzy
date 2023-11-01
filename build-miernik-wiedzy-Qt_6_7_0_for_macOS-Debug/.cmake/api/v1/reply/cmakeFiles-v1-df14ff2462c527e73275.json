@@ -1416,6 +1416,9 @@
 			"path" : "/Users/zofia/Qt/6.7.0/macos/lib/cmake/Qt6/macos/Info.plist.app.in"
 		},
 		{
+			"path" : "resources.qrc"
+		},
+		{
 			"isGenerated" : true,
 			"path" : "/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/build-miernik-wiedzy-Qt_6_7_0_for_macOS-Debug/.qt/info_plist/miernik_wiedzy/Info.plist"
 		}
