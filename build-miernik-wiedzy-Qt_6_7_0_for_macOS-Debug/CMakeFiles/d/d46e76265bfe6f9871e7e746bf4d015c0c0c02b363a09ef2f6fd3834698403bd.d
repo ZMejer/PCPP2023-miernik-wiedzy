@@ -682,6 +682,11 @@ miernik-wiedzy_autogen/timestamp: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/qos.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/time.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdarg.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/QList \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/QObject \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/QRect \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/QSize \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/QSizeF \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/q20memory.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/q20type_traits.h \
@@ -710,6 +715,7 @@ miernik-wiedzy_autogen/timestamp: \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qcontainerinfo.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qcontainertools_impl.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qcontiguouscache.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qcoreevent.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qdarwinhelpers.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qdatastream.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qdebug.h \
@@ -740,6 +746,7 @@ miernik-wiedzy_autogen/timestamp: \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qmetatype.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qminmax.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qnamespace.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qnativeinterface.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qnumeric.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qobject.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qobject_impl.h \
@@ -748,6 +755,7 @@ miernik-wiedzy_autogen/timestamp: \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qoverload.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qpair.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qpoint.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qpointer.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qprocessordetection.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qrect.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qrefcount.h \
@@ -799,36 +807,50 @@ miernik-wiedzy_autogen/timestamp: \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/QResizeEvent \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/QTransform \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qaction.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qbitmap.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qcolor.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qcursor.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qevent.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qeventpoint.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qfont.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qfontinfo.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qfontmetrics.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qicon.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qimage.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qinputdevice.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpalette.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpicture.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpixmap.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpointingdevice.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpolygon.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qregion.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qrgb.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qscreen.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextdocument.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtguiexports.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qvector2d.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qvectornd.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QLabel \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QVBoxLayout \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qboxlayout.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgridlayout.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlabel.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayout.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayoutitem.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h \

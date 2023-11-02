@@ -2,6 +2,7 @@
 #define DATABASEHANDLER_HPP
 
 #include <mysql/mysql.h>
+#include <iostream>
 
 class DatabaseHandler {
 private:
@@ -12,6 +13,7 @@ public:
     ~DatabaseHandler();
     bool executeQuery(const char *query);
     MYSQL_RES *storeResult();
+    std::vector<std::string> getAllQuestionContents();
 };
 
 #endif

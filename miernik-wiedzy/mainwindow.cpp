@@ -16,3 +16,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::resizeEvent(QResizeEvent *event) {
+    QMainWindow::resizeEvent(event);
+
+    QLabel *label = findChild<QLabel *>();
+    if (label) {
+        label->setFixedWidth(0.5*event->size().width());
+    }
+}
