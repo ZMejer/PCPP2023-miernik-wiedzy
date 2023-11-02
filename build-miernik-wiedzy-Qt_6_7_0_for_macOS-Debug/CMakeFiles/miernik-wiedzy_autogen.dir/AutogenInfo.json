@@ -352,6 +352,12 @@
 			null
 		],
 		[
+			"/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/Question.hpp",
+			"MU",
+			"EWIEGA46WW/moc_Question.cpp",
+			null
+		],
+		[
 			"/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -418,6 +424,11 @@
 	[
 		[
 			"/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/DatabaseHandler.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/Question.cpp",
 			"MU",
 			null
 		],

@@ -1,5 +1,5 @@
-#ifndef DATABASEHANDLER_H
-#define DATABASEHANDLER_H
+#ifndef DATABASEHANDLER_HPP
+#define DATABASEHANDLER_HPP
 
 #include <mysql/mysql.h>
 

@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "DatabaseHandler.hpp"
+#include "Question.hpp"
 
 int main(int argc, char *argv[]) {
     const char *server = "127.0.0.1";
@@ -13,13 +14,13 @@ int main(int argc, char *argv[]) {
     const char *database = "fizyka";
     int port = 3307;
 
-    DatabaseHandler dataHandler(server, user, password, database, port);
+    DatabaseHandler connection(server, user, password, database, port);
 
-    if (!dataHandler.executeQuery("select * from dzialy")) {
+    if (!connection.executeQuery("select * from pytania")) {
         return EXIT_FAILURE;
     }
 
-    MYSQL_RES *res = dataHandler.storeResult();
+    MYSQL_RES *res = connection.storeResult();
     if (res == NULL) {
         return EXIT_FAILURE;
     }
@@ -28,16 +29,24 @@ int main(int argc, char *argv[]) {
     MYSQL_ROW row;
 
     while ((row = mysql_fetch_row(res))) {
-        for (int i = 0; i < num_fields; i++) {
-            printf("%s ", row[i] ? row[i] : "NULL");
-        }
-        printf("\n");
-    }
+        int id = atoi(row[0]);
+        int section_id = atoi(row[1]);
+        int chapter_id = atoi(row[2]);
+        std::string content = row[3] ? row[3] : "NULL";
 
+        Question question(id, section_id, chapter_id, content);
+
+        printf("Pytanie: %s\n", question.getContent().c_str());
+    }
     mysql_free_result(res);
 
     QApplication app(argc, argv);
+
     MainWindow window;
+    QLabel *label = new QLabel(&window);
+    label->setText("Pytanie: ");
+    label->setStyleSheet("color:white");
+    label->move(100,125);
     window.show();
 
     return app.exec();

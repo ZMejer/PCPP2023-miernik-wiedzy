@@ -725,6 +725,7 @@
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qglobalstatic.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qhash.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qhashfunctions.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qiodevice.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qiodevicebase.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qiterable.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qiterator.h \
@@ -792,6 +793,7 @@
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qtversionchecks.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qtypeinfo.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qtypes.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qurl.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qutf8stringview.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qvariant.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtCore.framework/Versions/A/Headers/qvarlengtharray.h \
@@ -811,18 +813,23 @@
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpalette.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpicture.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpixmap.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qpolygon.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qregion.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qrgb.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextdocument.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtguiexports.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QLabel \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
+  /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlabel.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
   /Users/zofia/Qt/6.7.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h \

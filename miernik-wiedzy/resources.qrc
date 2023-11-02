@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/assets">
         <file>assets/logo.png</file>
+        <file>assets/Jost/static/Jost-Bold.ttf</file>
+        <file>assets/Jost/static/Jost-Regular.ttf</file>
     </qresource>
 </RCC>
