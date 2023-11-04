@@ -18,3 +18,7 @@ int Question::getChapterId() const {
 const std::string& Question::getContent() const {
     return pytanie;
 }
+
+const std::string& Question::getCorrectAnswer() const {
+    return poprawna_odpowiedz;
+}

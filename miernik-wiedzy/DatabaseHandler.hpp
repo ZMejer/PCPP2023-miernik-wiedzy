@@ -13,7 +13,7 @@ public:
     ~DatabaseHandler();
     bool executeQuery(const char *query);
     MYSQL_RES *storeResult();
-    std::vector<std::string> getAllQuestionContents();
+    std::vector<std::string> executeAndFetch(const std::string &query);
 };
 
 #endif

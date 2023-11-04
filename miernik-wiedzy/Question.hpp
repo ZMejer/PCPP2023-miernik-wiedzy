@@ -11,12 +11,14 @@ public:
     int getSectionId() const;
     int getChapterId() const;
     const std::string& getContent() const;
+    const std::string& getCorrectAnswer() const;
 
 private:
     int id;
     int dzial_id;
     int rozdzial_id;
     std::string pytanie;
+    std::string poprawna_odpowiedz;
 };
 
 #endif

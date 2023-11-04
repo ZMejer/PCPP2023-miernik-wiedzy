@@ -31,30 +31,30 @@ MYSQL_RES *DatabaseHandler::storeResult() {
     return mysql_store_result(conn);
 }
 
-// Implementujemy nową metodę do pobierania wszystkich pytań
-std::vector<std::string> DatabaseHandler::getAllQuestionContents() {
-    std::vector<std::string> questionContents;
+std::vector<std::string> DatabaseHandler::executeAndFetch(const std::string &query) {
+    std::vector<std::string> results;
 
-    if (!executeQuery("select * from pytania")) {
-        questionContents.push_back("Błąd w zapytaniu do bazy danych");
-        return questionContents;
+    if (!executeQuery(query.c_str())) {
+        results.push_back("Błąd w zapytaniu do bazy danych");
+        return results;
     }
 
     MYSQL_RES *res = storeResult();
     if (res == NULL) {
-        questionContents.push_back("Błąd podczas pobierania wyników z bazy danych");
-        return questionContents;
+        results.push_back("Błąd podczas pobierania wyników z bazy danych");
+        return results;
     }
 
     int num_fields = mysql_num_fields(res);
     MYSQL_ROW row;
 
     while ((row = mysql_fetch_row(res))) {
-        std::string content = row[3] ? row[3] : "Brak treści pytania";
-        questionContents.push_back(content);
+        std::string content = row[0] ? row[0] : "Brak odpowiedzi";
+        results.push_back(content);
     }
 
     mysql_free_result(res);
-    return questionContents;
+    return results;
 }
+
 
