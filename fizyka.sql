@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Nov 01, 2023 at 06:55 PM
+-- Generation Time: Nov 05, 2023 at 07:53 PM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.11
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `dzialy` (
   `id` int NOT NULL,
-  `nazwa` varchar(128) COLLATE utf8mb4_polish_ci NOT NULL
+  `nazwa` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -48,10 +48,10 @@ INSERT INTO `dzialy` (`id`, `nazwa`) VALUES
 CREATE TABLE `odpowiedzi` (
   `id` int NOT NULL,
   `pytanie_id` int NOT NULL,
-  `poprawna` varchar(512) COLLATE utf8mb4_polish_ci NOT NULL,
-  `bledna_1` varchar(512) COLLATE utf8mb4_polish_ci NOT NULL,
-  `bledna_2` varchar(512) COLLATE utf8mb4_polish_ci NOT NULL,
-  `bledna_3` varchar(512) COLLATE utf8mb4_polish_ci NOT NULL
+  `poprawna` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `bledna_1` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `bledna_2` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `bledna_3` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -59,7 +59,9 @@ CREATE TABLE `odpowiedzi` (
 --
 
 INSERT INTO `odpowiedzi` (`id`, `pytanie_id`, `poprawna`, `bledna_1`, `bledna_2`, `bledna_3`) VALUES
-(1, 1, '18 Nm', '0 Nm', '7 Nm', '9 Nm');
+(1, 1, '18 Nm', '0 Nm', '7 Nm', '9 Nm'),
+(2, 2, '49,35 J', '1800 J', '900 J', '16,2 J'),
+(3, 3, '0,2 km', '1000 m', '2 km', 'żadna odpowiedź nie jest poprawna');
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,7 @@ CREATE TABLE `pytania` (
   `id` int NOT NULL,
   `dzial_id` int NOT NULL,
   `rozdzial_id` int NOT NULL,
-  `pytanie` varchar(8192) COLLATE utf8mb4_polish_ci NOT NULL
+  `pytanie` varchar(8192) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -79,7 +81,9 @@ CREATE TABLE `pytania` (
 --
 
 INSERT INTO `pytania` (`id`, `dzial_id`, `rozdzial_id`, `pytanie`) VALUES
-(1, 1, 1, 'Wektor siły jest równy [2;1;2] N, wektor ramienia, za pomocą którego działamy na ciało, ma współrzędne [2;4;-4] m. Ile wynosi wartość momentu siły, jaki zadziała na ciało?');
+(1, 1, 1, 'Wektor siły jest równy [2;1;2] N, wektor ramienia, za pomocą którego działamy na ciało, ma współrzędne [2;4;-4] m. Ile wynosi wartość momentu siły, jaki zadziała na ciało?'),
+(2, 1, 2, 'Bryła sztywna w kształcie jednorodnej kuli o promieniu 1 m oraz masie 100 kg obraca się wokół osi przechodzącej przez jej środek z prędkością kątową 90 stopni/sekundę. Energia ruchu obrotowego tej kuli wynosi:'),
+(3, 1, 3, 'Samochód jadący jednostajnie prostym odcinkiem drogi z prędkością 36 km/h nagle zaczyna przyśpieszać z przyspieszeniem 2 m/s^2.  Jaką drogę przebędzie w czasie 10 sekund od momentu, kiedy zaczął przyśpieszać?');
 
 -- --------------------------------------------------------
 
@@ -90,7 +94,7 @@ INSERT INTO `pytania` (`id`, `dzial_id`, `rozdzial_id`, `pytanie`) VALUES
 CREATE TABLE `rozdzialy` (
   `id` int NOT NULL,
   `dzial_id` int NOT NULL,
-  `nazwa` varchar(128) COLLATE utf8mb4_polish_ci NOT NULL
+  `nazwa` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -98,7 +102,9 @@ CREATE TABLE `rozdzialy` (
 --
 
 INSERT INTO `rozdzialy` (`id`, `dzial_id`, `nazwa`) VALUES
-(1, 1, 'Zasady dynamiki Newtona');
+(1, 1, 'Zasady dynamiki Newtona'),
+(2, 1, 'Obroty wokół stałej osi'),
+(3, 1, 'Ruch prostoliniowy');
 
 --
 -- Indexes for dumped tables
@@ -146,19 +152,19 @@ ALTER TABLE `dzialy`
 -- AUTO_INCREMENT for table `odpowiedzi`
 --
 ALTER TABLE `odpowiedzi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pytania`
 --
 ALTER TABLE `pytania`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rozdzialy`
 --
 ALTER TABLE `rozdzialy`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

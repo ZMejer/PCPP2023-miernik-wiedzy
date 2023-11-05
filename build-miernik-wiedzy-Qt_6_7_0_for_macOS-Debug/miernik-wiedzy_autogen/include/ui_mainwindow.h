@@ -14,6 +14,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -25,6 +26,11 @@ public:
     QWidget *centralwidget;
     QLabel *label;
     QLabel *label_2;
+    QLabel *QuestionLabel;
+    QPushButton *answerButton_1;
+    QPushButton *answerButton_2;
+    QPushButton *answerButton_3;
+    QPushButton *answerButton_4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -45,6 +51,22 @@ public:
         font.setBold(true);
         font.setItalic(false);
         label_2->setFont(font);
+        QuestionLabel = new QLabel(centralwidget);
+        QuestionLabel->setObjectName("QuestionLabel");
+        QuestionLabel->setGeometry(QRect(80, 130, 141, 21));
+        QuestionLabel->setFont(font);
+        answerButton_1 = new QPushButton(centralwidget);
+        answerButton_1->setObjectName("answerButton_1");
+        answerButton_1->setGeometry(QRect(70, 210, 321, 71));
+        answerButton_2 = new QPushButton(centralwidget);
+        answerButton_2->setObjectName("answerButton_2");
+        answerButton_2->setGeometry(QRect(70, 300, 321, 71));
+        answerButton_3 = new QPushButton(centralwidget);
+        answerButton_3->setObjectName("answerButton_3");
+        answerButton_3->setGeometry(QRect(70, 390, 321, 71));
+        answerButton_4 = new QPushButton(centralwidget);
+        answerButton_4->setObjectName("answerButton_4");
+        answerButton_4->setGeometry(QRect(70, 480, 321, 71));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -64,6 +86,11 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "<html><body><img src=\":/assets/assets/logo.png\"></body</html>", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:white;\">Miernik Wiedzy</span></p></body></html>", nullptr));
+        QuestionLabel->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:white;\">Question</span></p></body></html>", nullptr));
+        answerButton_1->setText(QCoreApplication::translate("MainWindow", "Answer", nullptr));
+        answerButton_2->setText(QCoreApplication::translate("MainWindow", "Answer", nullptr));
+        answerButton_3->setText(QCoreApplication::translate("MainWindow", "Answer", nullptr));
+        answerButton_4->setText(QCoreApplication::translate("MainWindow", "Answer", nullptr));
     } // retranslateUi
 
 };
