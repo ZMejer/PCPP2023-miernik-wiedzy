@@ -22,6 +22,8 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
+    void fetchDataFromDatabase();
+    void initializeAnswers();
 
 private slots:
     void loadNextQuestion();
@@ -34,5 +36,9 @@ private:
     QPushButton *answerButton;
     std::vector<std::string> allAnswers;
     int currentQuestionIndex;
+    std::vector<std::string> correctAnswers;
+    std::vector<std::string> wrongAnswers_1;
+    std::vector<std::string> wrongAnswers_2;
+    std::vector<std::string> wrongAnswers_3;
 };
 #endif // MAINWINDOW_H

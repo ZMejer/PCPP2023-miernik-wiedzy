@@ -16,11 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("Miernik Wiedzy");
     this->setStyleSheet("background-color: #1A1529;");
 
-    std::vector<std::string> questionContents = connection.executeAndFetch("select pytanie from pytania order by id");
-    std::vector<std::string> correctAnswers = connection.executeAndFetch("select poprawna from odpowiedzi order by pytanie_id");
-    std::vector<std::string> wrongAnswers_1 = connection.executeAndFetch("select bledna_1 from odpowiedzi order by pytanie_id");
-    std::vector<std::string> wrongAnswers_2 = connection.executeAndFetch("select bledna_2 from odpowiedzi order by pytanie_id");
-    std::vector<std::string> wrongAnswers_3 = connection.executeAndFetch("select bledna_3 from odpowiedzi order by pytanie_id");
+    fetchDataFromDatabase();
 
     auto shuffleAnswers = [](std::vector<std::string>& answers) {
         std::random_device rd;
@@ -84,6 +80,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::fetchDataFromDatabase() {
+    questionContents = connection.executeAndFetch("select pytanie from pytania order by id");
+    correctAnswers = connection.executeAndFetch("select poprawna from odpowiedzi order by pytanie_id");
+    wrongAnswers_1 = connection.executeAndFetch("select bledna_1 from odpowiedzi order by pytanie_id");
+    wrongAnswers_2 = connection.executeAndFetch("select bledna_2 from odpowiedzi order by pytanie_id");
+    wrongAnswers_3 = connection.executeAndFetch("select bledna_3 from odpowiedzi order by pytanie_id");
+}
+
+
 void MainWindow::resizeEvent(QResizeEvent *event) {
     QMainWindow::resizeEvent(event);
 
@@ -99,11 +104,8 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
 }
 
 void MainWindow::loadNextQuestion() {
-    questionContents = connection.executeAndFetch("select pytanie from pytania order by id");
-    std::vector<std::string> correctAnswers = connection.executeAndFetch("select poprawna from odpowiedzi order by pytanie_id");
-    std::vector<std::string> wrongAnswers_1 = connection.executeAndFetch("select bledna_1 from odpowiedzi order by pytanie_id");
-    std::vector<std::string> wrongAnswers_2 = connection.executeAndFetch("select bledna_2 from odpowiedzi order by pytanie_id");
-    std::vector<std::string> wrongAnswers_3 = connection.executeAndFetch("select bledna_3 from odpowiedzi order by pytanie_id");
+
+    fetchDataFromDatabase();
 
     auto shuffleAnswers = [](std::vector<std::string>& answers) {
         std::random_device rd;
@@ -134,7 +136,6 @@ void MainWindow::loadNextQuestion() {
     ui->answerButton_2->setText(QString::fromStdString(allAnswers[currentQuestionIndex][1]));
     ui->answerButton_3->setText(QString::fromStdString(allAnswers[currentQuestionIndex][2]));
     ui->answerButton_4->setText(QString::fromStdString(allAnswers[currentQuestionIndex][3]));
-
 
 }
 
