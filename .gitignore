@@ -1,0 +1,9 @@
+.DS_Store
+/build-miernik-wiedzy-Qt_6_7_0_for_macOS-Debug
+miernik-wiedzy/Makefile
+miernik-wiedzy/miernik-wiedzy_autogen
+miernik-wiedzy/cmake_install.cmake
+miernik-wiedzy/miernik-wiedzy
+miernik-wiedzy/CMakeLists.txt.user
+miernik-wiedzy/CMakeCache.txt
+miernik-wiedzy/CMakeFiles
