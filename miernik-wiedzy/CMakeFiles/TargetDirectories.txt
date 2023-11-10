@@ -1,8 +1,0 @@
-/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/CMakeFiles/miernik-wiedzy.dir
-/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/CMakeFiles/edit_cache.dir
-/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/CMakeFiles/rebuild_cache.dir
-/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/CMakeFiles/list_install_components.dir
-/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/CMakeFiles/install.dir
-/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/CMakeFiles/install/local.dir
-/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/CMakeFiles/install/strip.dir
-/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy/CMakeFiles/miernik-wiedzy_autogen.dir
