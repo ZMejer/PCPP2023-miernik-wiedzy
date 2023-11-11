@@ -40,5 +40,6 @@ private:
     std::vector<std::string> wrongAnswers_1;
     std::vector<std::string> wrongAnswers_2;
     std::vector<std::string> wrongAnswers_3;
+    int correctlyAnsweredQuestions;
 };
 #endif // MAINWINDOW_H

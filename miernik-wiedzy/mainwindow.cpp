@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     , connection("127.0.0.1", "root", "password", "fizyka", 3307)
 {
     currentQuestionIndex = 0;
+    correctlyAnsweredQuestions = 0;
     ui->setupUi(this);
     this->setWindowTitle("Miernik Wiedzy");
     this->setStyleSheet("background-color: #1A1529;");
@@ -40,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->QuestionLabel->resize(300, 200);
     ui->QuestionLabel->setWordWrap(true);
-    ui->QuestionLabel->setStyleSheet("font-size: 24px; color: white; font-weight:bold;");
+    ui->QuestionLabel->setStyleSheet("font-size: 22px; color: white; font-weight:bold;");
     ui->QuestionLabel->setText(QString::fromStdString(questionContents[0]));
     ui->QuestionLabel->move(100,125);
 
@@ -91,7 +92,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->AnsweredQuestionsProgress->setStyleSheet(progressBarStyle);
     ui->AnsweredQuestionsProgress->setTextVisible(false);
     ui->MasteredQuestionsProgress->setRange(0,100);
-    ui->MasteredQuestionsProgress->setValue(20);
+    ui->MasteredQuestionsProgress->setValue(0);
     ui->MasteredQuestionsProgress->setStyleSheet(progressBarStyle);
     ui->MasteredQuestionsProgress->setTextVisible(false);
     ui->AnsweredQuestionsProgress->setFixedHeight(10);
@@ -99,6 +100,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->AnsweredQuestionsNumbers->setText(QString::fromStdString(std::to_string(currentQuestionIndex)+"/"+std::to_string(questionContents.size())));
     ui->AnsweredQuestionsNumbers->setStyleSheet("color:white; font-size:16px;");
+
+    ui->MasteredQuestionsNumbers->setText(QString::fromStdString(std::to_string(correctlyAnsweredQuestions)+"/"+std::to_string(questionContents.size())));
+    ui->MasteredQuestionsNumbers->setStyleSheet("color:white; font-size:16px;");
 }
 
 MainWindow::~MainWindow()
@@ -170,6 +174,14 @@ void MainWindow::loadNextQuestion() {
         allAnswers.push_back(answersForRow);
     }
 
+    QObject* senderObject = QObject::sender();
+    if (QPushButton* clickedButton = qobject_cast<QPushButton*>(senderObject)) {
+        QString buttonText = clickedButton->text();
+        if(buttonText == QString::fromStdString(correctAnswers[currentQuestionIndex])){
+            correctlyAnsweredQuestions += 1;
+        }
+    }
+
     ui->AnsweredQuestionsNumbers->setText(QString::fromStdString(std::to_string(currentQuestionIndex+1)+"/"+std::to_string(questionContents.size())));
     ui->AnsweredQuestionsProgress->setValue(100*(currentQuestionIndex+1)/questionContents.size());
 
@@ -179,6 +191,9 @@ void MainWindow::loadNextQuestion() {
         // tu będzie koniec testu
         return;
     }
+
+    ui->MasteredQuestionsNumbers->setText(QString::fromStdString(std::to_string(correctlyAnsweredQuestions)+"/"+std::to_string(questionContents.size())));
+    ui->MasteredQuestionsProgress->setValue(100*(correctlyAnsweredQuestions)/questionContents.size());
 
     ui->QuestionLabel->setText(QString::fromStdString(questionContents[currentQuestionIndex]));
     ui->answerButton_1->setText(QString::fromStdString(allAnswers[currentQuestionIndex][0]));
