@@ -10,8 +10,8 @@
 - [x]  **Tydzień 1.** (do 23.10) – utworzenie głównej klasy dla pytań, stworzenie struktury projektu (zaplanowanie folderów, plików, itp.), stworzenie repozytorium na githubie.  
 - [x]  **Tydzień 2.** (do 30.10) – dodanie bazy pytań.  
 - [x]  **Tydzień 3.** (do 06.11) – początek tworzenia interfejsu graficznego w Qt.  
-- [ ]  **Tydzień 4.** (do 13.11) – kontynuacja tworzenia interfejsu graficznego w Qt  
-- [ ]  **Tydzień 5.** (do 20.11) – dodanie funkcjonalności zliczania udzielonych odpowiedzi.  
+- [x]  **Tydzień 4.** (do 13.11) – kontynuacja tworzenia interfejsu graficznego w Qt  
+- [x]  **Tydzień 5.** (do 20.11) – dodanie funkcjonalności zliczania udzielonych odpowiedzi.  
 - [ ]  **Tydzień 6.** (do 27.11) – dodanie funkcjonalności zliczania opanowanych pytań.  
 - [ ]  **Tydzień 7.** (do 04.12) – dodanie więcej pytań z większej liczby działów, dodanie możliwości wyboru działu do nauki na początku.   
 - [ ]  **Tydzień 8.** (do 11.12) – dodanie funkcjonalności wyświetlania na końcu testu sugerowanych tematów do powtórki.  

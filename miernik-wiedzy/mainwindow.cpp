@@ -6,6 +6,7 @@
 #include <random>
 #include <QPushButton>
 #include <QProgressBar>
+#include <QThread>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -86,7 +87,7 @@ MainWindow::MainWindow(QWidget *parent)
                                "    background-color:#6EA474;"
                                "}";
     ui->AnsweredQuestionsProgress->setRange(0,100);
-    ui->AnsweredQuestionsProgress->setValue(40);
+    ui->AnsweredQuestionsProgress->setValue(0);
     ui->AnsweredQuestionsProgress->setStyleSheet(progressBarStyle);
     ui->AnsweredQuestionsProgress->setTextVisible(false);
     ui->MasteredQuestionsProgress->setRange(0,100);
@@ -96,6 +97,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->AnsweredQuestionsProgress->setFixedHeight(10);
     ui->MasteredQuestionsProgress->setFixedHeight(10);
 
+    ui->AnsweredQuestionsNumbers->setText(QString::fromStdString(std::to_string(currentQuestionIndex)+"/"+std::to_string(questionContents.size())));
+    ui->AnsweredQuestionsNumbers->setStyleSheet("color:white; font-size:16px;");
 }
 
 MainWindow::~MainWindow()
@@ -126,21 +129,27 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
     }
     QLabel *AnsweredQuestions = ui->AnsweredQuestionsLabel;
     QProgressBar *AnsweredProgress = ui->AnsweredQuestionsProgress;
-    if (AnsweredQuestions && AnsweredProgress) {
+    QLabel *AnsweredNumbers = ui->AnsweredQuestionsNumbers;
+    if (AnsweredQuestions && AnsweredProgress && AnsweredNumbers) {
         AnsweredQuestions->setFixedWidth(0.4 * event->size().width());
         AnsweredQuestions->move(0.7*event->size().width(),175);
         AnsweredProgress->move(0.7*event->size().width(),210);
+        AnsweredNumbers->move(0.7*event->size().width()+90,230);
     }
     QLabel *MasteredQuestions = ui->MasteredQuestionsLabel;
     QProgressBar *MasteredProgress = ui->MasteredQuestionsProgress;
-    if (MasteredQuestions) {
+    QLabel *MasteredNumbers = ui->MasteredQuestionsNumbers;
+    if (MasteredQuestions && MasteredProgress && MasteredNumbers) {
         MasteredQuestions->setFixedWidth(0.4 * event->size().width());
         MasteredQuestions->move(0.7*event->size().width(),325);
         MasteredProgress->move(0.7*event->size().width(),360);
+        MasteredNumbers->move(0.7*event->size().width()+90,380);
     }
 }
 
 void MainWindow::loadNextQuestion() {
+
+    // QThread::sleep(1);
 
     fetchDataFromDatabase();
 
@@ -161,6 +170,9 @@ void MainWindow::loadNextQuestion() {
         allAnswers.push_back(answersForRow);
     }
 
+    ui->AnsweredQuestionsNumbers->setText(QString::fromStdString(std::to_string(currentQuestionIndex+1)+"/"+std::to_string(questionContents.size())));
+    ui->AnsweredQuestionsProgress->setValue(100*(currentQuestionIndex+1)/questionContents.size());
+
     if (currentQuestionIndex < questionContents.size() - 1) {
         currentQuestionIndex++;
     } else {
@@ -173,6 +185,5 @@ void MainWindow::loadNextQuestion() {
     ui->answerButton_2->setText(QString::fromStdString(allAnswers[currentQuestionIndex][1]));
     ui->answerButton_3->setText(QString::fromStdString(allAnswers[currentQuestionIndex][2]));
     ui->answerButton_4->setText(QString::fromStdString(allAnswers[currentQuestionIndex][3]));
-
 }
 
