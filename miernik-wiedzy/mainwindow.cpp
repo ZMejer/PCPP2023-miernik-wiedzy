@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <random>
 #include <QPushButton>
+#include <QProgressBar>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -73,6 +75,27 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->answerButton_3, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
     connect(ui->answerButton_4, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
 
+
+    QString progressBarStyle = "QProgressBar {"
+                               "    border: 0;"
+                               "    border-radius: 5px;"
+                               "    background-color:#6C6482;"
+                               "}"
+                               "QProgressBar::chunk {"
+                               "    border-radius:5px;"
+                               "    background-color:#6EA474;"
+                               "}";
+    ui->AnsweredQuestionsProgress->setRange(0,100);
+    ui->AnsweredQuestionsProgress->setValue(40);
+    ui->AnsweredQuestionsProgress->setStyleSheet(progressBarStyle);
+    ui->AnsweredQuestionsProgress->setTextVisible(false);
+    ui->MasteredQuestionsProgress->setRange(0,100);
+    ui->MasteredQuestionsProgress->setValue(20);
+    ui->MasteredQuestionsProgress->setStyleSheet(progressBarStyle);
+    ui->MasteredQuestionsProgress->setTextVisible(false);
+    ui->AnsweredQuestionsProgress->setFixedHeight(10);
+    ui->MasteredQuestionsProgress->setFixedHeight(10);
+
 }
 
 MainWindow::~MainWindow()
@@ -100,6 +123,20 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
     QList<QPushButton *> answerButtons = findChildren<QPushButton *>();
     for (QPushButton *answerButton : answerButtons) {
         answerButton->setFixedWidth(0.45 * event->size().width());
+    }
+    QLabel *AnsweredQuestions = ui->AnsweredQuestionsLabel;
+    QProgressBar *AnsweredProgress = ui->AnsweredQuestionsProgress;
+    if (AnsweredQuestions && AnsweredProgress) {
+        AnsweredQuestions->setFixedWidth(0.4 * event->size().width());
+        AnsweredQuestions->move(0.7*event->size().width(),175);
+        AnsweredProgress->move(0.7*event->size().width(),210);
+    }
+    QLabel *MasteredQuestions = ui->MasteredQuestionsLabel;
+    QProgressBar *MasteredProgress = ui->MasteredQuestionsProgress;
+    if (MasteredQuestions) {
+        MasteredQuestions->setFixedWidth(0.4 * event->size().width());
+        MasteredQuestions->move(0.7*event->size().width(),325);
+        MasteredProgress->move(0.7*event->size().width(),360);
     }
 }
 
