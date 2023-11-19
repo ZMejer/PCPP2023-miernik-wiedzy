@@ -12,7 +12,7 @@
 - [x]  **Tydzień 3.** (do 06.11) – początek tworzenia interfejsu graficznego w Qt.  
 - [x]  **Tydzień 4.** (do 13.11) – kontynuacja tworzenia interfejsu graficznego w Qt  
 - [x]  **Tydzień 5.** (do 20.11) – dodanie funkcjonalności zliczania udzielonych odpowiedzi.  
-- [ ]  **Tydzień 6.** (do 27.11) – dodanie funkcjonalności zliczania opanowanych pytań.  
+- [x]  **Tydzień 6.** (do 27.11) – dodanie funkcjonalności zliczania opanowanych pytań.  
 - [ ]  **Tydzień 7.** (do 04.12) – dodanie więcej pytań z większej liczby działów, dodanie możliwości wyboru działu do nauki na początku.   
 - [ ]  **Tydzień 8.** (do 11.12) – dodanie funkcjonalności wyświetlania na końcu testu sugerowanych tematów do powtórki.  
 - [ ]  **Tydzień 9.** (do 18.12) – ostateczne dodatki, tzn przycisk powrotu do strony głównej, przycisk do ponownego przejścia testu itp.  
