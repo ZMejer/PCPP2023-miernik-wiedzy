@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
 
     MainWindow window;
     window.resize(1100,700);
+    window.setMinimumSize(950, 700);
     window.show();
 
     return app.exec();
