@@ -47,8 +47,14 @@ else()
     endif()
 endif()
 
-set(MYSQL_INCLUDE_DIR /opt/homebrew/opt/mysql-client/include)
-set(MYSQL_LIBRARY /opt/homebrew/opt/mysql-client/lib/libmysqlclient.dylib)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(MYSQL_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/../mysql-client/lib/libmysqlclient.dylib)
+    set(MYSQL_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../mysql-client/include)
+else()
+    set(MYSQL_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/mysql-client/lib/libmysqlclient.dylib)
+    set(MYSQL_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/mysql-client/include)
+endif()
+
 
 include_directories(${MYSQL_INCLUDE_DIR})
 target_link_libraries(miernik-wiedzy PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ${MYSQL_LIBRARY})
