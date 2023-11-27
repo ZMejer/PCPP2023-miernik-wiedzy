@@ -47,17 +47,11 @@ else()
     endif()
 endif()
 
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(MYSQL_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/../mysql-client/lib/libmysqlclient.dylib)
-    set(MYSQL_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../mysql-client/include)
-else()
-    set(MYSQL_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/mysql-client/lib/libmysqlclient.dylib)
-    set(MYSQL_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/mysql-client/include)
-endif()
-
+find_library(MYSQL_LIBRARY NAMES mysqlclient PATHS ${CMAKE_CURRENT_SOURCE_DIR}/mysql-client/lib)
 
 include_directories(${MYSQL_INCLUDE_DIR})
 target_link_libraries(miernik-wiedzy PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ${MYSQL_LIBRARY})
+
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
