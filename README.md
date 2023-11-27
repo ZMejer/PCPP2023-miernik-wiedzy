@@ -22,10 +22,6 @@
 ## Wymagania
 
 - Qt (u mnie 6.5.2)
-- mysql-client
-```bash
-sudo apt-get install mysql-client
-```
 - Docker (u mnie 24.0.7)
 
 ## Instalacja
@@ -51,7 +47,7 @@ docker compose up
 4. Uruchamianie projektu:
 ```bash
 cd miernik-wiedzy
-cmake ..
+cmake .
 make
 ./miernik-wiedzy.app
 ```
