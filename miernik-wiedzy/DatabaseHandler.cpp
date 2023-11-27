@@ -1,5 +1,4 @@
 #include "DatabaseHandler.hpp"
-#include <iostream>
 
 DatabaseHandler::DatabaseHandler(const char *server, const char *user, const char *password, const char *database, int port) {
     conn = mysql_init(NULL);
