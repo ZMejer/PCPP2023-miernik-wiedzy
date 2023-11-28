@@ -5,16 +5,18 @@ services:
   db:
     image: mysql:latest
     volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d/
       - db:/var/lib/mysql
     restart: always
     ports:
       - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
-      MYSQL_DATABASE: 'db'
+      MYSQL_DATABASE: 'fizyka'
       MYSQL_PASSWORD: 'password'
     networks:
       - app_network
+    command: --init-file=/docker-entrypoint-initdb.d/fizyka.sql
 
   phpmyadmin:
     depends_on:
@@ -35,6 +37,3 @@ networks:
 
 volumes:
   db:
-  frontend:
-  backend:  
-  

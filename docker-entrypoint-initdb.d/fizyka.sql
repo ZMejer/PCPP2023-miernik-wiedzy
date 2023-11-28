@@ -7,6 +7,9 @@
 -- Server version: 8.2.0
 -- PHP Version: 8.2.11
 
+CREATE DATABASE IF NOT EXISTS `fizyka`;
+USE `fizyka`;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -27,6 +30,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `dzialy`
 --
 
+USE `fizyka`;
+
 CREATE TABLE `dzialy` (
   `id` int NOT NULL,
   `nazwa` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL
@@ -44,6 +49,8 @@ INSERT INTO `dzialy` (`id`, `nazwa`) VALUES
 --
 -- Table structure for table `odpowiedzi`
 --
+
+USE `fizyka`;
 
 CREATE TABLE `odpowiedzi` (
   `id` int NOT NULL,
@@ -73,6 +80,8 @@ INSERT INTO `odpowiedzi` (`id`, `pytanie_id`, `poprawna`, `bledna_1`, `bledna_2`
 -- Table structure for table `pytania`
 --
 
+USE `fizyka`;
+
 CREATE TABLE `pytania` (
   `id` int NOT NULL,
   `dzial_id` int NOT NULL,
@@ -98,6 +107,8 @@ INSERT INTO `pytania` (`id`, `dzial_id`, `rozdzial_id`, `pytanie`) VALUES
 --
 -- Table structure for table `rozdzialy`
 --
+
+USE `fizyka`;
 
 CREATE TABLE `rozdzialy` (
   `id` int NOT NULL,
