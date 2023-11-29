@@ -3,6 +3,7 @@
 
 #include <mysql/mysql.h>
 #include <iostream>
+#include <vector>
 
 class DatabaseHandler {
 private:
