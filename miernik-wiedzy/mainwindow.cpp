@@ -7,6 +7,7 @@
 #include <QPushButton>
 #include <QProgressBar>
 #include <QThread>
+#include "WidgetStyles.hpp"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,26 +21,10 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("Miernik Wiedzy");
     this->setStyleSheet("background-color: #1A1529;");
 
-    QString buttonStyle =   "QPushButton {"
-                          "   border:none;"
-                          "   background-color:#4b455e;"
-                          "   color:white; "
-                          "   font-weight:bold;"
-                          "   font-size:28px;"
-                          "   border-radius:5px;"
-                          "}"
-                          "QPushButton:hover {"
-                          "   background-color:#565266;"
-                          "}";
-
-    ui->sectionButton_1->setCursor(Qt::PointingHandCursor);
-    ui->sectionButton_2->setCursor(Qt::PointingHandCursor);
-    ui->sectionButton_3->setCursor(Qt::PointingHandCursor);
-    ui->sectionButton_4->setCursor(Qt::PointingHandCursor);
-    ui->sectionButton_1->setStyleSheet(buttonStyle);
-    ui->sectionButton_2->setStyleSheet(buttonStyle);
-    ui->sectionButton_3->setStyleSheet(buttonStyle);
-    ui->sectionButton_4->setStyleSheet(buttonStyle);
+    WidgetStyles::applyButtonStyle(ui->sectionButton_1);
+    WidgetStyles::applyButtonStyle(ui->sectionButton_2);
+    WidgetStyles::applyButtonStyle(ui->sectionButton_3);
+    WidgetStyles::applyButtonStyle(ui->sectionButton_4);
     ui->sectionButton_1->setGeometry(250, 150 + 0 * 75, 500, 60);
     ui->sectionButton_2->setGeometry(250, 150 + 1 * 75, 500, 60);
     ui->sectionButton_3->setGeometry(250, 150 + 2 * 75, 500, 60);
@@ -87,59 +72,25 @@ void MainWindow::selectSection(){
     ui->QuestionLabel->setText(QString::fromStdString(questionContents[0]));
     ui->QuestionLabel->move(100,125);
 
-    QString buttonStyle =   "QPushButton {"
-                          "   border:none;"
-                          "   background-color:#4b455e;"
-                          "   color:white; "
-                          "   font-weight:bold;"
-                          "   font-size:28px;"
-                          "   border-radius:5px;"
-                          "}"
-                          "QPushButton:hover {"
-                          "   background-color:#565266;"
-                          "}";
-
+    WidgetStyles::applyButtonStyle(ui->answerButton_1);
+    WidgetStyles::applyButtonStyle(ui->answerButton_2);
+    WidgetStyles::applyButtonStyle(ui->answerButton_3);
+    WidgetStyles::applyButtonStyle(ui->answerButton_4);
     ui->answerButton_1->setText(QString::fromStdString(allAnswers[0][0]));
     ui->answerButton_2->setText(QString::fromStdString(allAnswers[0][1]));
     ui->answerButton_3->setText(QString::fromStdString(allAnswers[0][2]));
     ui->answerButton_4->setText(QString::fromStdString(allAnswers[0][3]));
-    ui->answerButton_1->setStyleSheet(buttonStyle);
-    ui->answerButton_2->setStyleSheet(buttonStyle);
-    ui->answerButton_3->setStyleSheet(buttonStyle);
-    ui->answerButton_4->setStyleSheet(buttonStyle);
     ui->answerButton_1->setGeometry(100, 350 + 0 * 75, 500, 60);
     ui->answerButton_2->setGeometry(100, 350 + 1 * 75, 500, 60);
     ui->answerButton_3->setGeometry(100, 350 + 2 * 75, 500, 60);
     ui->answerButton_4->setGeometry(100, 350 + 3 * 75, 500, 60);
-    ui->answerButton_1->setCursor(Qt::PointingHandCursor);
-    ui->answerButton_2->setCursor(Qt::PointingHandCursor);
-    ui->answerButton_3->setCursor(Qt::PointingHandCursor);
-    ui->answerButton_4->setCursor(Qt::PointingHandCursor);
     connect(ui->answerButton_1, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
     connect(ui->answerButton_2, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
     connect(ui->answerButton_3, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
     connect(ui->answerButton_4, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
 
-
-    QString progressBarStyle = "QProgressBar {"
-                               "    border: 0;"
-                               "    border-radius: 5px;"
-                               "    background-color:#6C6482;"
-                               "}"
-                               "QProgressBar::chunk {"
-                               "    border-radius:5px;"
-                               "    background-color:#6EA474;"
-                               "}";
-    ui->AnsweredQuestionsProgress->setRange(0,100);
-    ui->AnsweredQuestionsProgress->setValue(0);
-    ui->AnsweredQuestionsProgress->setStyleSheet(progressBarStyle);
-    ui->AnsweredQuestionsProgress->setTextVisible(false);
-    ui->MasteredQuestionsProgress->setRange(0,100);
-    ui->MasteredQuestionsProgress->setValue(0);
-    ui->MasteredQuestionsProgress->setStyleSheet(progressBarStyle);
-    ui->MasteredQuestionsProgress->setTextVisible(false);
-    ui->AnsweredQuestionsProgress->setFixedHeight(10);
-    ui->MasteredQuestionsProgress->setFixedHeight(10);
+    WidgetStyles::applyProgressBarStyle(ui->AnsweredQuestionsProgress);
+    WidgetStyles::applyProgressBarStyle(ui->MasteredQuestionsProgress);
 
     ui->AnsweredQuestionsNumbers->setText(QString::fromStdString(std::to_string(currentQuestionIndex)+"/"+std::to_string(questionContents.size())));
     ui->AnsweredQuestionsNumbers->setStyleSheet("color:white; font-size:16px;");
