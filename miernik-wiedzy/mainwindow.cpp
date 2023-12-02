@@ -15,12 +15,55 @@ MainWindow::MainWindow(QWidget *parent)
 {
     currentQuestionIndex = 0;
     correctlyAnsweredQuestions = 0;
+
     ui->setupUi(this);
     this->setWindowTitle("Miernik Wiedzy");
     this->setStyleSheet("background-color: #1A1529;");
 
-    fetchDataFromDatabase();
+    QString buttonStyle =   "QPushButton {"
+                          "   border:none;"
+                          "   background-color:#4b455e;"
+                          "   color:white; "
+                          "   font-weight:bold;"
+                          "   font-size:28px;"
+                          "   border-radius:5px;"
+                          "}"
+                          "QPushButton:hover {"
+                          "   background-color:#565266;"
+                          "}";
 
+    ui->sectionButton_1->setCursor(Qt::PointingHandCursor);
+    ui->sectionButton_2->setCursor(Qt::PointingHandCursor);
+    ui->sectionButton_3->setCursor(Qt::PointingHandCursor);
+    ui->sectionButton_4->setCursor(Qt::PointingHandCursor);
+    ui->sectionButton_1->setStyleSheet(buttonStyle);
+    ui->sectionButton_2->setStyleSheet(buttonStyle);
+    ui->sectionButton_3->setStyleSheet(buttonStyle);
+    ui->sectionButton_4->setStyleSheet(buttonStyle);
+    ui->sectionButton_1->setGeometry(250, 150 + 0 * 75, 500, 60);
+    ui->sectionButton_2->setGeometry(250, 150 + 1 * 75, 500, 60);
+    ui->sectionButton_3->setGeometry(250, 150 + 2 * 75, 500, 60);
+    ui->sectionButton_4->setGeometry(250, 150 + 3 * 75, 500, 60);
+    connect(ui->sectionButton_1, SIGNAL(clicked()), this, SLOT(selectSection()));
+    connect(ui->sectionButton_2, SIGNAL(clicked()), this, SLOT(selectSection()));
+    connect(ui->sectionButton_3, SIGNAL(clicked()), this, SLOT(selectSection()));
+    connect(ui->sectionButton_4, SIGNAL(clicked()), this, SLOT(selectSection()));
+
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::selectSection(){
+    QObject* senderObject = QObject::sender();
+    if (QPushButton* clickedButton = qobject_cast<QPushButton*>(senderObject)) {
+        QString buttonText = clickedButton->text();
+        std::vector<std::string> result = connection.executeAndFetch("select id from dzialy where nazwa='"+buttonText.toStdString()+"'");
+        sectionId = std::stoi(result[0]);
+    }
+    fetchDataFromDatabase(sectionId);
     auto shuffleAnswers = [](std::vector<std::string>& answers) {
         std::random_device rd;
         std::mt19937 g(rd());
@@ -45,16 +88,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->QuestionLabel->move(100,125);
 
     QString buttonStyle =   "QPushButton {"
-                            "   border:none;"
-                            "   background-color:#4b455e;"
-                            "   color:white; "
-                            "   font-weight:bold;"
-                            "   font-size:28px;"
-                            "   border-radius:5px;"
-                            "}"
-                            "QPushButton:hover {"
-                            "   background-color:#565266;"
-                            "}";
+                          "   border:none;"
+                          "   background-color:#4b455e;"
+                          "   color:white; "
+                          "   font-weight:bold;"
+                          "   font-size:28px;"
+                          "   border-radius:5px;"
+                          "}"
+                          "QPushButton:hover {"
+                          "   background-color:#565266;"
+                          "}";
+
     ui->answerButton_1->setText(QString::fromStdString(allAnswers[0][0]));
     ui->answerButton_2->setText(QString::fromStdString(allAnswers[0][1]));
     ui->answerButton_3->setText(QString::fromStdString(allAnswers[0][2]));
@@ -102,19 +146,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->MasteredQuestionsNumbers->setText(QString::fromStdString(std::to_string(correctlyAnsweredQuestions)+"/"+std::to_string(questionContents.size())));
     ui->MasteredQuestionsNumbers->setStyleSheet("color:white; font-size:16px;");
+    ui->stackedWidget->setCurrentIndex(0);
+
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
+void MainWindow::fetchDataFromDatabase(int sectionId) {
+    questionContents = connection.executeAndFetch("select pytanie from pytania where dzial_id='"+std::to_string(sectionId)+"' order by id");
+    correctAnswers = connection.executeAndFetch("select poprawna from odpowiedzi where pytanie_id in(select id from pytania where dzial_id='"+std::to_string(sectionId)+"') order by pytanie_id");
+    wrongAnswers_1 = connection.executeAndFetch("select bledna_1 from odpowiedzi where pytanie_id in(select id from pytania where dzial_id='"+std::to_string(sectionId)+"') order by pytanie_id");
+    wrongAnswers_2 = connection.executeAndFetch("select bledna_2 from odpowiedzi where pytanie_id in(select id from pytania where dzial_id='"+std::to_string(sectionId)+"') order by pytanie_id");
+    wrongAnswers_3 = connection.executeAndFetch("select bledna_3 from odpowiedzi where pytanie_id in(select id from pytania where dzial_id='"+std::to_string(sectionId)+"') order by pytanie_id");
 
-void MainWindow::fetchDataFromDatabase() {
-    questionContents = connection.executeAndFetch("select pytanie from pytania order by id");
-    correctAnswers = connection.executeAndFetch("select poprawna from odpowiedzi order by pytanie_id");
-    wrongAnswers_1 = connection.executeAndFetch("select bledna_1 from odpowiedzi order by pytanie_id");
-    wrongAnswers_2 = connection.executeAndFetch("select bledna_2 from odpowiedzi order by pytanie_id");
-    wrongAnswers_3 = connection.executeAndFetch("select bledna_3 from odpowiedzi order by pytanie_id");
 }
 
 
@@ -130,6 +172,7 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
     for (QPushButton *answerButton : answerButtons) {
         answerButton->setFixedWidth(0.45 * event->size().width());
     }
+
     QLabel *AnsweredQuestions = ui->AnsweredQuestionsLabel;
     QProgressBar *AnsweredProgress = ui->AnsweredQuestionsProgress;
     QLabel *AnsweredNumbers = ui->AnsweredQuestionsNumbers;
@@ -152,9 +195,9 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
 
 void MainWindow::loadNextQuestion() {
 
-    // QThread::sleep(1);
+    //QThread::sleep(1);
 
-    fetchDataFromDatabase();
+    fetchDataFromDatabase(sectionId);
 
     auto shuffleAnswers = [](std::vector<std::string>& answers) {
         std::random_device rd;

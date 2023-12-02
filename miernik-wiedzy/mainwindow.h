@@ -22,11 +22,12 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
-    void fetchDataFromDatabase();
+    void fetchDataFromDatabase(int sectionId);
     void initializeAnswers();
 
 private slots:
     void loadNextQuestion();
+    void selectSection();
 
 private:
     Ui::MainWindow *ui;
@@ -41,5 +42,6 @@ private:
     std::vector<std::string> wrongAnswers_2;
     std::vector<std::string> wrongAnswers_3;
     int correctlyAnsweredQuestions;
+    int sectionId;
 };
 #endif // MAINWINDOW_H

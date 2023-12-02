@@ -42,7 +42,10 @@ CREATE TABLE `dzialy` (
 --
 
 INSERT INTO `dzialy` (`id`, `nazwa`) VALUES
-(1, 'Mechanika');
+(1, 'Mechanika'),
+(2, 'Elektryczność i magnetyzm'),
+(3, 'Optyka'),
+(4, 'Termodynamika');
 
 -- --------------------------------------------------------
 
@@ -72,7 +75,11 @@ INSERT INTO `odpowiedzi` (`id`, `pytanie_id`, `poprawna`, `bledna_1`, `bledna_2`
 (4, 4, '[0, 0, 7] kg m^2/s', '[0, 0, 3.5] kg m^2/s', '[1, 2, 3.5] kg m^2/s', '3.5 kg m^2/s'),
 (5, 5, '20,39 m', '41,00 m', '20,30 m', 'żadna odpowiedź nie jest prawdziwa'),
 (6, 6, '0,375', '0,3', '0,15', '0,5'),
-(7, 7, '1/2 f', '2f', 'f', '1/4 f');
+(7, 7, '1/2 f', '2f', 'f', '1/4 f'),
+(8, 8, '0.46 K/s', '4.6 K/s', '46 K/min', '4.6 K/min'),
+(9, 9, 'Odległość maleje', 'Odległość wzrasta', 'Odległość się nie zmienia', 'Za mało informacji'),
+(10, 10, 'P = 574 W, P_wyp = 72 W', 'P = 626 W, P_wyp = 94 W', 'P = 437 W, P_wyp = 125 W', 'P = 385 W, P_wyp = 63 W'),
+(11, 11, 'Ugnie się w kierunku do normalnej', 'Ugnie się w kierunku od normalnej', 'Będzie biegł bez zmian', 'Różnie się zachowa w zależności od długości fali światła ');
 
 -- --------------------------------------------------------
 
@@ -100,7 +107,11 @@ INSERT INTO `pytania` (`id`, `dzial_id`, `rozdzial_id`, `pytanie`) VALUES
 (4, 1, 4, 'Ciało o masie 2 kg porusza się ruchem jednostajnym po okręgu o promieniu 1 m. Płaszczyzna w której odbywa się ruch zawarta jest w płaszczyźnie XY, a początek układu odniesienia jest w środku okręgu. Wartość prędkości liniowej ciała wynosi 3,5 m/s. Moment pędu tego ciała liczony względem środka okręgu, po którym się porusza wynosi:'),
 (5, 1, 3, 'Na jaką maksymalną wysokość (z dokładnością do drugiego miejsca po przecinku) wzniesie się kulka wystrzelona pionowo w górę z prędkością 72 km/h (przyjmij przyspieszenie ziemskie równe 9,81 m/s^2)?'),
 (6, 1, 5, 'Powierzchnia równi tworzy z poziomem kąt równy 15 stopni. Klocek możemy przesuwać po równi ruchem jednostajnym z dołu do góry używając siły F1, zaś z góry na dół używając siły F2. Ile wynosi współczynnik tarcia klocka o równię, jeśli F1=6F2, a obie siły są równoległe do powierzchni równi?'),
-(7, 1, 4, 'Siła tarcia f jest siłą dośrodkową dla samochodu pokonującego zakręt o promieniu R z prędkością V. Dalej samochód pokonuje podobny zakręt, ale o promieniu 2R z tą samą prędkością V. Aby przejechać drugi zakręt siła tarcia musi wynosić: ');
+(7, 1, 4, 'Siła tarcia f jest siłą dośrodkową dla samochodu pokonującego zakręt o promieniu R z prędkością V. Dalej samochód pokonuje podobny zakręt, ale o promieniu 2R z tą samą prędkością V. Aby przejechać drugi zakręt siła tarcia musi wynosić: '),
+(8, 4, 6, 'Element projektowanego układu elektronicznego składa się z 23 mg krzemu. Płynący prąd dodaje energię w tempie 7.4 mW = 7.4 * 10^(-3) J/s. Jeśli nie można w żaden sposób odprowadzać ciepła z elementu, z jaką prędkością rośnie jego temperatura? Ciepło właściwe krzemu to 705 J/kg*K'),
+(9, 3, 7, 'Oświetlasz laserem, którego długość fali świetlnej można płynnie zmieniać, parę blisko siebie położonych szczelin. Na ekranie za szczelinami widać układ prążków interferencyjnych. Jeśli zmieniasz długość światła od czerwonego do niebieskiego, jak będzie się zmieniała odległość między prążkami?'),
+(10, 4, 8, 'Jaką całkowitą moc wypromieniowuje ciało ludzkie o powierzchni 1.2 m^2 i temperaturze powierzchni 30°C = 303 K? Jeśli otoczenie ma temperaturę 20°C, jaka jest wypadkowa strata ciepła? Emisyjność ludzkiego ciała jest bliska 1, stała Boltzmanna δ = 5.67 * 10^(-8) W/(m^2 * K^4)'),
+(11, 3, 10, 'Jeśli światło biegnie z ośrodka o większym współczynniku załamania do ośrodka o mniejszym współczynniku załamania, to po minięciu granicy ośrodków promień:');
 
 -- --------------------------------------------------------
 
@@ -125,7 +136,11 @@ INSERT INTO `rozdzialy` (`id`, `dzial_id`, `nazwa`) VALUES
 (2, 1, 'Obroty wokół stałej osi'),
 (3, 1, 'Ruch prostoliniowy'),
 (4, 1, 'Ruch po okręgu'),
-(5, 1, 'Równia pochyła');
+(5, 1, 'Równia pochyła'),
+(6, 4, 'Temperatura i ciepło'),
+(7, 3, 'Interferencja'),
+(8, 4, 'Zasady termodynamiki'),
+(10, 3, 'Natura światła');
 
 --
 -- Indexes for dumped tables
