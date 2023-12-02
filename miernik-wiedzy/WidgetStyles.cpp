@@ -32,3 +32,10 @@ void WidgetStyles::applyProgressBarStyle(QProgressBar *progressBar) {
     progressBar->setTextVisible(false);
     progressBar->setFixedHeight(10);
 }
+
+void WidgetStyles::applyQuestionLabelStyle(QLabel *questionLabel) {
+    questionLabel->resize(300, 200);
+    questionLabel->setWordWrap(true);
+    questionLabel->setStyleSheet("font-size: 22px; color: white; font-weight:bold;");
+    questionLabel->move(100,125);
+}

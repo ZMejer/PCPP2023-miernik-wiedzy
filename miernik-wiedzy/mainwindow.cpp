@@ -21,19 +21,19 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("Miernik Wiedzy");
     this->setStyleSheet("background-color: #1A1529;");
 
-    WidgetStyles::applyButtonStyle(ui->sectionButton_1);
-    WidgetStyles::applyButtonStyle(ui->sectionButton_2);
-    WidgetStyles::applyButtonStyle(ui->sectionButton_3);
-    WidgetStyles::applyButtonStyle(ui->sectionButton_4);
-    ui->sectionButton_1->setGeometry(250, 150 + 0 * 75, 500, 60);
-    ui->sectionButton_2->setGeometry(250, 150 + 1 * 75, 500, 60);
-    ui->sectionButton_3->setGeometry(250, 150 + 2 * 75, 500, 60);
-    ui->sectionButton_4->setGeometry(250, 150 + 3 * 75, 500, 60);
-    connect(ui->sectionButton_1, SIGNAL(clicked()), this, SLOT(selectSection()));
-    connect(ui->sectionButton_2, SIGNAL(clicked()), this, SLOT(selectSection()));
-    connect(ui->sectionButton_3, SIGNAL(clicked()), this, SLOT(selectSection()));
-    connect(ui->sectionButton_4, SIGNAL(clicked()), this, SLOT(selectSection()));
+    const int sectionButtonCount = 4;
+    QPushButton* sectionButtons[sectionButtonCount] = {
+        ui->sectionButton_1,
+        ui->sectionButton_2,
+        ui->sectionButton_3,
+        ui->sectionButton_4
+    };
 
+    for (int i = 0; i < sectionButtonCount; i++) {
+        WidgetStyles::applyButtonStyle(sectionButtons[i]);
+        sectionButtons[i]->setGeometry(250, 150 + i * 75, 500, 60);
+        connect(sectionButtons[i], &QPushButton::clicked, this, &MainWindow::selectSection);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -66,28 +66,23 @@ void MainWindow::selectSection(){
         allAnswers.push_back(answersForRow);
     }
 
-    ui->QuestionLabel->resize(300, 200);
-    ui->QuestionLabel->setWordWrap(true);
-    ui->QuestionLabel->setStyleSheet("font-size: 22px; color: white; font-weight:bold;");
+    WidgetStyles::applyQuestionLabelStyle(ui->QuestionLabel);
     ui->QuestionLabel->setText(QString::fromStdString(questionContents[0]));
-    ui->QuestionLabel->move(100,125);
 
-    WidgetStyles::applyButtonStyle(ui->answerButton_1);
-    WidgetStyles::applyButtonStyle(ui->answerButton_2);
-    WidgetStyles::applyButtonStyle(ui->answerButton_3);
-    WidgetStyles::applyButtonStyle(ui->answerButton_4);
-    ui->answerButton_1->setText(QString::fromStdString(allAnswers[0][0]));
-    ui->answerButton_2->setText(QString::fromStdString(allAnswers[0][1]));
-    ui->answerButton_3->setText(QString::fromStdString(allAnswers[0][2]));
-    ui->answerButton_4->setText(QString::fromStdString(allAnswers[0][3]));
-    ui->answerButton_1->setGeometry(100, 350 + 0 * 75, 500, 60);
-    ui->answerButton_2->setGeometry(100, 350 + 1 * 75, 500, 60);
-    ui->answerButton_3->setGeometry(100, 350 + 2 * 75, 500, 60);
-    ui->answerButton_4->setGeometry(100, 350 + 3 * 75, 500, 60);
-    connect(ui->answerButton_1, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
-    connect(ui->answerButton_2, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
-    connect(ui->answerButton_3, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
-    connect(ui->answerButton_4, SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
+    const int answerButtonCount = 4;
+    QPushButton* answerButtons[answerButtonCount] = {
+        ui->answerButton_1,
+        ui->answerButton_2,
+        ui->answerButton_3,
+        ui->answerButton_4
+    };
+
+    for (int i = 0; i < answerButtonCount; i++) {
+        WidgetStyles::applyButtonStyle(answerButtons[i]);
+        answerButtons[i]->setText(QString::fromStdString(allAnswers[0][i]));
+        answerButtons[i]->setGeometry(100, 350 + i * 75, 500, 60);
+        connect(answerButtons[i], SIGNAL(clicked()), this, SLOT(loadNextQuestion()));
+    }
 
     WidgetStyles::applyProgressBarStyle(ui->AnsweredQuestionsProgress);
     WidgetStyles::applyProgressBarStyle(ui->MasteredQuestionsProgress);
