@@ -31,9 +31,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     for (int i = 0; i < sectionButtonCount; i++) {
         WidgetStyles::applyButtonStyle(sectionButtons[i]);
-        sectionButtons[i]->setGeometry(250, 150 + i * 75, 500, 60);
+        sectionButtons[i]->setGeometry(250, 250 + i * 75, 500, 60);
         connect(sectionButtons[i], &QPushButton::clicked, this, &MainWindow::selectSection);
     }
+
+    WidgetStyles::applyButtonStyle(ui->returnButton);
 }
 
 MainWindow::~MainWindow()
@@ -114,9 +116,17 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
         QuestionLabel->setFixedWidth(0.5 * event->size().width());
     }
 
-    QList<QPushButton *> answerButtons = findChildren<QPushButton *>();
-    for (QPushButton *answerButton : answerButtons) {
-        answerButton->setFixedWidth(0.45 * event->size().width());
+    QList<QPushButton *> pushButtons = findChildren<QPushButton *>();
+    for (QPushButton *pushButton : pushButtons) {
+        int ButtonWidth = 0.45 * event->size().width();
+        if (pushButton != ui->returnButton) {
+            pushButton->setFixedWidth(ButtonWidth);
+        }
+        else {
+            pushButton->move(event->size().width() - pushButton->width()*2, pushButton->y());
+        }
+        int centerX = 250 + ButtonWidth / 2;
+        ui->textLabel->move(centerX - ui->textLabel->width() / 2, 150);
     }
 
     QLabel *AnsweredQuestions = ui->AnsweredQuestionsLabel;

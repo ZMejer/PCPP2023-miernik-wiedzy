@@ -226,13 +226,26 @@
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; color:white; text-align:center;&quot;&gt;0/0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="returnButton">
+        <property name="geometry">
+         <rect>
+          <x>639</x>
+          <y>30</y>
+          <width>121</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Wróć</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="page_2">
        <widget class="QPushButton" name="sectionButton_1">
         <property name="geometry">
          <rect>
           <x>240</x>
-          <y>130</y>
+          <y>190</y>
           <width>321</width>
           <height>71</height>
          </rect>
@@ -245,7 +258,7 @@
         <property name="geometry">
          <rect>
           <x>240</x>
-          <y>220</y>
+          <y>270</y>
           <width>321</width>
           <height>71</height>
          </rect>
@@ -258,7 +271,7 @@
         <property name="geometry">
          <rect>
           <x>240</x>
-          <y>310</y>
+          <y>350</y>
           <width>321</width>
           <height>71</height>
          </rect>
@@ -271,13 +284,64 @@
         <property name="geometry">
          <rect>
           <x>240</x>
-          <y>400</y>
+          <y>430</y>
           <width>321</width>
           <height>71</height>
          </rect>
         </property>
         <property name="text">
          <string>Termodynamika</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>71</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;body&gt;&lt;img src=&quot;:/assets/assets/logo.png&quot;&gt;&lt;/body&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>30</y>
+          <width>141</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:700; color:white;&quot;&gt;Miernik Wiedzy&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="textLabel">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>110</y>
+          <width>361</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:34pt; font-weight:700; color:white;&quot;&gt;Wybierz dział do nauki&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>
