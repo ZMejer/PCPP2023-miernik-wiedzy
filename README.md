@@ -1,5 +1,5 @@
 
-# Miernik wiedzy (Projekt w C--)
+# Miernik wiedzy (Projekt w C--++)
 
 **Temat projektu:** Aplikacja służąca do testowania opanowanego materiału z fizyki. 
 
