@@ -1,5 +1,5 @@
 
-# Miernik wiedzy (Projekt w Cpp)
+# Miernik wiedzy (Projekt w C++)
 
 **Temat projektu:** Aplikacja służąca do testowania opanowanego materiału z fizyki. 
 
@@ -75,6 +75,10 @@ make
 
 - Qt (u mnie 6.5.2)
 - Docker (u mnie 24.0.7)
+- mysql-client
+```bash
+sudo apt-get install mysql-client
+```
 
 ## Instalacja
 
