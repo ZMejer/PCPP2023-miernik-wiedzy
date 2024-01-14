@@ -8,6 +8,8 @@
 #include <QProgressBar>
 #include <QThread>
 #include "WidgetStyles.hpp"
+#include <string>
+#include <QString>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -187,6 +189,15 @@ void MainWindow::loadNextQuestion() {
         if(buttonText == QString::fromStdString(correctAnswers[currentQuestionIndex])){
             correctlyAnsweredQuestions += 1;
         }
+        else {
+            QLabel *QuestionLabel = ui->QuestionLabel;
+            QString questionText = QuestionLabel->text();
+            std::vector<std::string> subSectionId = connection.executeAndFetch("select rozdzial_id from pytania where pytanie='"+questionText.toStdString()+"' order by id");
+            std::vector<std::string> subSection = connection.executeAndFetch("select nazwa from rozdzialy where id='"+subSectionId[0]+"' order by id");
+            if (std::find(subSectionsToRevise.begin(), subSectionsToRevise.end(), subSection[0]) == subSectionsToRevise.end()) {
+                subSectionsToRevise.push_back(subSection[0]);
+            }
+        }
     }
 
     ui->AnsweredQuestionsNumbers->setText(QString::fromStdString(std::to_string(currentQuestionIndex+1)+"/"+std::to_string(questionContents.size())));
@@ -195,7 +206,14 @@ void MainWindow::loadNextQuestion() {
     if (currentQuestionIndex < questionContents.size() - 1) {
         currentQuestionIndex++;
     } else {
-        // tu będzie koniec testu
+        // tu koniec testu
+        QString subSectionsText;
+        for (size_t i = 1; i < subSectionsToRevise.size(); i++) {
+            subSectionsText += "\n" + QString::fromStdString(subSectionsToRevise[i]);
+        }
+        ui->subSections->setText(subSectionsText);
+        ui->stackedWidget->setCurrentIndex(1);
+        ui->earnedPointsLabel->setText(QString::fromStdString(std::to_string(correctlyAnsweredQuestions)+"/"+std::to_string(questionContents.size())));
         return;
     }
 

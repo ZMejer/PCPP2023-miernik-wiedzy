@@ -44,5 +44,6 @@ private:
     std::vector<std::string> wrongAnswers_3;
     int correctlyAnsweredQuestions;
     int sectionId;
+    std::vector<std::string> subSectionsToRevise;
 };
 #endif // MAINWINDOW_H
