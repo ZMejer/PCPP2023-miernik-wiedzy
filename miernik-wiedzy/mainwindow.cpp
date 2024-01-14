@@ -47,6 +47,8 @@ MainWindow::~MainWindow()
 void MainWindow::returnToMainPage() {
     currentQuestionIndex = 0;
     correctlyAnsweredQuestions = 0;
+    ui->AnsweredQuestionsNumbers->setText(QString::fromStdString(std::to_string(currentQuestionIndex+1)+"/"+std::to_string(questionContents.size())));
+    ui->AnsweredQuestionsProgress->setValue(100*(currentQuestionIndex+1)/questionContents.size());
     ui->stackedWidget->setCurrentIndex(1);
 }
 
