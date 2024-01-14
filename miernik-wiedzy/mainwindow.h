@@ -28,6 +28,7 @@ protected:
 private slots:
     void loadNextQuestion();
     void selectSection();
+    void returnToMainPage();
 
 private:
     Ui::MainWindow *ui;

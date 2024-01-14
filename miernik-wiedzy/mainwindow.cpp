@@ -36,11 +36,18 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     WidgetStyles::applyButtonStyle(ui->returnButton);
+    connect(ui->returnButton, &QPushButton::clicked, this, &MainWindow::returnToMainPage);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::returnToMainPage() {
+    currentQuestionIndex = 0;
+    correctlyAnsweredQuestions = 0;
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::selectSection(){
