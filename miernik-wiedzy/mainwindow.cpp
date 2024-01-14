@@ -36,6 +36,17 @@ MainWindow::MainWindow(QWidget *parent)
         sectionButtons[i]->setGeometry(250, 150 + i * 75, 500, 60);
         connect(sectionButtons[i], &QPushButton::clicked, this, &MainWindow::selectSection);
     }
+
+    WidgetStyles::applyButtonStyle(ui->returnButton);
+    connect(ui->returnButton, &QPushButton::clicked, this, &MainWindow::returnToMainPage);
+}
+
+void MainWindow::returnToMainPage() {
+    currentQuestionIndex = 0;
+    correctlyAnsweredQuestions = 0;
+    ui->AnsweredQuestionsNumbers->setText(QString::fromStdString(std::to_string(currentQuestionIndex+1)+"/"+std::to_string(questionContents.size())));
+    ui->AnsweredQuestionsProgress->setValue(100*(currentQuestionIndex+1)/questionContents.size());
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 MainWindow::~MainWindow()
@@ -116,9 +127,15 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
         QuestionLabel->setFixedWidth(0.5 * event->size().width());
     }
 
-    QList<QPushButton *> answerButtons = findChildren<QPushButton *>();
-    for (QPushButton *answerButton : answerButtons) {
-        answerButton->setFixedWidth(0.45 * event->size().width());
+    QList<QPushButton *> pushButtons = findChildren<QPushButton *>();
+    for (QPushButton *pushButton : pushButtons) {
+        int ButtonWidth = 0.45 * event->size().width();
+        if (pushButton != ui->returnButton) {
+            pushButton->setFixedWidth(ButtonWidth);
+        }
+        else {
+            pushButton->move(event->size().width() - pushButton->width()*2, pushButton->y());
+        }
     }
 
     QLabel *AnsweredQuestions = ui->AnsweredQuestionsLabel;
