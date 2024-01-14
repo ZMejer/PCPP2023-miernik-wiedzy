@@ -168,6 +168,9 @@ void MainWindow::loadNextQuestion() {
         if(buttonText == QString::fromStdString(correctAnswers[currentQuestionIndex])){
             correctlyAnsweredQuestions += 1;
         }
+        else {
+
+        }
     }
 
     ui->AnsweredQuestionsNumbers->setText(QString::fromStdString(std::to_string(currentQuestionIndex+1)+"/"+std::to_string(questionContents.size())));
