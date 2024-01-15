@@ -212,6 +212,8 @@ void MainWindow::loadNextQuestion() {
         ui->subSections->setText(subSectionsText);
         ui->stackedWidget->setCurrentIndex(1);
         ui->earnedPointsLabel->setText(QString::fromStdString(std::to_string(correctlyAnsweredQuestions)+"/"+std::to_string(questionContents.size())));
+        ui->subSections->setStyleSheet("color: white;");
+        ui->earnedPointsLabel->setStyleSheet("color:white; ");
         return;
     }
 
