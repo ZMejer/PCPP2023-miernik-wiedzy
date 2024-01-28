@@ -38,7 +38,9 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     WidgetStyles::applyButtonStyle(ui->returnButton);
+    WidgetStyles::applyButtonStyle(ui->returnButton_2);
     connect(ui->returnButton, &QPushButton::clicked, this, &MainWindow::returnToMainPage);
+    connect(ui->returnButton_2, &QPushButton::clicked, this, &MainWindow::returnToMainPage);
 }
 
 void MainWindow::returnToMainPage() {
@@ -130,7 +132,7 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
     QList<QPushButton *> pushButtons = findChildren<QPushButton *>();
     for (QPushButton *pushButton : pushButtons) {
         int ButtonWidth = 0.45 * event->size().width();
-        if (pushButton != ui->returnButton) {
+        if (pushButton != ui->returnButton && pushButton != ui->returnButton_2) {
             pushButton->setFixedWidth(ButtonWidth);
         }
         else {
