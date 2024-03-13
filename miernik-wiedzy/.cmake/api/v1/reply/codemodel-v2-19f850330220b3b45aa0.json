@@ -1,0 +1,70 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-f58fca4f4523cab5a92e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "miernik-wiedzy",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "miernik-wiedzy::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-miernik-wiedzy-5e0222022faf209b1a39.json",
+					"name" : "miernik-wiedzy",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "miernik-wiedzy_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-miernik-wiedzy_autogen-4585dc575043c774478c.json",
+					"name" : "miernik-wiedzy_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy",
+		"source" : "/Users/zofia/Studia/Projekt-C++/PCPP2023-miernik-wiedzy/miernik-wiedzy"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
